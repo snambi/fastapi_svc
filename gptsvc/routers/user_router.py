@@ -10,11 +10,16 @@ user_router = APIRouter(
     responses={404: {"description": "Not found"}},
 )
 
+user_controller:UserController = None
+
 def get_user_service():
     return UserService()
 
 def get_user_controller(service:UserService = Depends(get_user_service)):
-    return UserController(service)
+    if(user_controller == None):
+        user_controller = UserController(service)
+    
+    return user_controller
     
 
 @user_router.get("/", response_model=list[User])

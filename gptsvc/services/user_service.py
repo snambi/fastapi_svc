@@ -13,8 +13,12 @@ class UserService:
     users = []
     
     def __init__(self):
-        for i in range(10):
-            UserService.users.append(_generate_user())
+        if( len(UserService.users) == 0 ):
+            print(f"zero users. generate 10 users ")        
+            for i in range(10):
+                UserService.users.append(_generate_user())
+        else:
+            print(f"{len(UserService.users)} users. not generating any users ")        
             
     def get_users(self) -> list[User]:
         return UserService.users

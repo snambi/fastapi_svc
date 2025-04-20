@@ -17,7 +17,10 @@
                 "8000",
                 "--reload"
             ],
-            "jinja2": false
+            "jinja2": false,
+            "env":{
+                "PYTHONPYCACHEPREFIX": "/tmp/gptsvc/pycache"
+            }
         }
     ]
 }

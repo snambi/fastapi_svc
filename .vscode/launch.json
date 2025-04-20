@@ -10,7 +10,7 @@
             "request": "launch",
             "module": "uvicorn",
             "args": [
-                "gptsvc:svc_api.app",
+                "gptsvc:main.app",
                 "--host",
                 "0.0.0.0",
                 "--port",

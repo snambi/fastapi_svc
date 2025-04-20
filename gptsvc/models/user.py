@@ -18,12 +18,12 @@ class User(BaseModel):
     gender:Gender = Gender.OTHER
     
     model_config = {
-        "frozen": True
+        "frozen": False
     }
 
     @staticmethod
     def generate() -> Gender :        
-        match random.randint(1, 3, 1):
+        match random.randint(1, 3):
             case 1:
                 return Gender.MALE
             case 2:

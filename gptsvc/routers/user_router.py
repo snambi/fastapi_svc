@@ -1,8 +1,11 @@
 from fastapi import APIRouter, Depends, HTTPException
+import random, logging
+
 from gptsvc.models.user import User,Gender
 from gptsvc.services.user_service import UserService
 from gptsvc.controllers.user_controller import UserController
-import random
+
+logger = logging.getLogger(__name__)
 
 user_router = APIRouter(
     prefix="/users",
@@ -16,7 +19,8 @@ def get_user_service():
     return UserService()
 
 def get_user_controller(service:UserService = Depends(get_user_service)):
-    if(user_controller == None):
+    global user_controller
+    if(user_controller is None):    
         user_controller = UserController(service)
     
     return user_controller

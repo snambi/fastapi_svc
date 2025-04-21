@@ -1,5 +1,7 @@
 from gptsvc.models.user import User, Gender
-import random
+import random, logging
+
+logger = logging.getLogger(__name__)
 
 def _generate_user() -> User:
     user = User()
@@ -13,12 +15,16 @@ class UserService:
     users = []
     
     def __init__(self):
+        """_summary_
+        """
         if( len(UserService.users) == 0 ):
-            print(f"zero users. generate 10 users ")        
+            logger.debug(f"zero users. generate 10 users ")        
             for i in range(10):
                 UserService.users.append(_generate_user())
         else:
-            print(f"{len(UserService.users)} users. not generating any users ")        
+            logger.debug(f"{len(UserService.users)} users. not generating any users ")
+            
+        logger.info("User Service Initialized")   
             
     def get_users(self) -> list[User]:
         return UserService.users

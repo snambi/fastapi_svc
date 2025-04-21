@@ -42,13 +42,3 @@ async def get_hello():
     logger.info("hello received")
     return {"message": "Hello World!!!"}
 
-@app.get("/items/", response_model=List[Item])
-async def get_items():
-    """_summary_
-
-    Returns:
-        _type_: _description_
-    """
-   
-    print("request items received")
-    return []

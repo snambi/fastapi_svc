@@ -3,14 +3,15 @@ from fastapi import FastAPI
 from contextlib import asynccontextmanager
 import logging
 
-from gptsvc.models.item import Item
-from gptsvc.routers.user_router import user_router
 from gptsvc.config.logging_config import initialize_logger
-
 initialize_logger()
 
 logger = logging.getLogger(__name__)
 logger.info("gptsvc initializing")
+
+from gptsvc.models.item import Item
+from gptsvc.routers.user_router import user_router
+
 
 async def on_startup():
     logger.info("running startup tasks")

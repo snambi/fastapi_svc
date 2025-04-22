@@ -27,6 +27,7 @@ class UserService:
         logger.info("User Service Initialized")   
             
     def get_users(self) -> list[User]:
+        logger.debug("get_users() invoked")
         return UserService.users
     
     def add_user(self, user:User):

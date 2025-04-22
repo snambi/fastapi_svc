@@ -14,7 +14,7 @@ pip install -r requirments-dev.txt
 ## Run from CLI
 
 ```bash
-uvicorn gptsvc:svc_api.app --reload 
+uvicorn gptsvc:main.app --reload 
 ```
 
 ## Clean up generated files

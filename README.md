@@ -22,3 +22,18 @@ uvicorn gptsvc:main.app --reload
 invoke clean
 ```
 
+## build docker image
+```bash
+docker build -t gptsvc:v1 .
+```
+
+## run docker image
+```bash
+docker run -p 8000:8000 --read-only gptsvc:v1
+```
+
+## access the URL
+```bash
+❯ curl http://0.0.0.0:8000/hello
+{"message":"Hello World!!!"}
+```

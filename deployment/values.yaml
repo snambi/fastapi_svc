@@ -1,0 +1,52 @@
+replicaCount: 1
+namespace: "app"
+nameOverride: ""
+
+podAnnotations:
+  prometheus.io/scrape: "true"
+  prometheus.io/port: "8080"
+  prometheus.io/path: "/metrics"
+
+podLabels:
+  app: "gptsvc"
+
+image:
+  repository: gptsvc
+  tag: v1
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 8080
+  targetPort: 8000  # Assuming uvicorn runs on 8000
+
+ingress:
+  enabled: true
+  className: ""
+  annotations: {}
+  hosts:
+    - host: fastapi.local
+      paths:
+        - path: /
+          pathType: Prefix
+  tls: []
+
+resources:
+  limits:
+    cpu: 1
+    memory: 1Gi
+  requests:
+    cpu: 0.5
+    memory: 0.5Gi
+
+
+autoscaling: {}
+
+# where it can be created based on labels
+nodeSelector: {}
+
+# where it should not be created
+tolerations: []
+
+# more fine grained control for pod creation
+affinity: {}

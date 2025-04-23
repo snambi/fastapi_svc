@@ -37,3 +37,25 @@ docker run -p 8000:8000 --read-only gptsvc:v1
 ❯ curl http://0.0.0.0:8000/hello
 {"message":"Hello World!!!"}
 ```
+
+# Run the code in minikube
+
+To install minikube, follow these [steps](https://minikube.sigs.k8s.io/docs/start/?arch=%2Fmacos%2Farm64%2Fstable%2Fbinary+download)
+
+## start minikube 
+
+```bash
+minikube start
+# point to minikube docker
+eval $(minikube docker-env)
+```
+
+## build the docker image
+
+```bash
+docker build -t gptsvc:v1 .
+kubectl config set-context --current --namespace app
+```
+
+
+

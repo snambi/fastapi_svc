@@ -1,0 +1,11 @@
+apiVersion: v2
+name: fastapi-chart
+icon: https://github.com
+description: A Helm chart to deploy FastAPI app
+type: application
+version: 0.0.1
+appVersion: "0.0.1"
+maintainers: 
+  - name: nambi sankaran
+    url: https://github.com
+

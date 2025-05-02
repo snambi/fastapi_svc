@@ -23,3 +23,6 @@ spec:
             - name: http
               containerPort: {{ .Values.service.targetPort }}
               protocol: TCP
+          volumes:
+            - name:
+              

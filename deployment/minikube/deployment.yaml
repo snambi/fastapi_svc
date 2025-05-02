@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gptsvc-deployment
+  labels:
+    app: gptsvc
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: gptsvc
+  template:
+    metadata:
+      labels:
+        app: gptsvc
+    spec:
+      containers:
+      - name: gptsvc-c
+        image: gptsvc:v1 # gptsvc image
+        ports:
+        - containerPort: 8000
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
+          limits:
+            memory: "256Mi"
+            cpu: "200m"

@@ -1,11 +1,11 @@
 ---
-title: {{title}}
-emoji: {{emoji}}
-colorFrom: {{colorFrom}}
-colorTo: {{colorTo}}
-sdk: {{sdk}}
-sdk_version: "{{sdkVersion}}"
-app_file: app.py
+title: "Mistral Model Serving API"
+emoji: "space"
+colorFrom: indigo
+colorTo: pink
+sdk: fastapi
+sdk_version: "3.1.2"
+app_file: gptsvc/main.py
 pinned: false
 ---
 

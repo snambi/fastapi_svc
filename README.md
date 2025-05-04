@@ -1,9 +1,9 @@
 ---
 title: "Mistral Model Serving API"
-emoji: "space"
+emoji: 🦙
 colorFrom: indigo
 colorTo: pink
-sdk: fastapi
+sdk: docker
 sdk_version: "3.1.2"
 app_file: gptsvc/main.py
 pinned: false

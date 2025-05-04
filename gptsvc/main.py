@@ -34,32 +34,7 @@ async def lifespan(app: FastAPI):
 app = FastAPI(lifespan=lifespan)
 
 app.include_router(user_router)
-    
-@app.post("/chat")
-async def chat(input:str):
-    data = {
-                "model": "mistral-large-latest",
-                "messages": [
-                {
-                    "role": "user",
-                    "content": f"{input}"
-                }
-                ]
-            }
-    
-    headers = {
-                "Content-Type": "application/json",
-                "Accept" : "application/json",
-                "Authorization" : "Bearer D23yxyESwEK9bo3fG2iiSWMtvLy5N45e"
-            }
-    response = requests.post("https://api.mistral.ai/v1/chat/completions", 
-                             data=json.dumps(data), 
-                             headers=headers)
-    
-    logger.debug("f{resposne.status_code}")
-    return {"result": f"{response.json()}"}
-    
-
+        
 @app.get("/hello")
 async def get_hello():
     """_summary_
@@ -70,3 +45,8 @@ async def get_hello():
     logger.info("hello received")
     return {"message": "Hello World!!!"}
 
+
+@app.get("/healthz")
+@app.get("/")
+def health():
+    return {"status": "ok"}

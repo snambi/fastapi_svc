@@ -65,8 +65,22 @@ eval $(minikube docker-env)
 
 ```bash
 docker build -t gptsvc:v1 .
+
+kubectl create ns app
 kubectl config set-context --current --namespace app
 ```
 
+## create namespace and start the pod
+```bash
+cd deployment/minikube
+kubectl apply -f pod.yaml
+```
 
+## access the app via proxy 
+```bash
+❯ kubectl proxy
+Starting to serve on 127.0.0.1:8001
 
+❯ curl http://localhost:8001/api/v1/namespaces/app/pods/gptsvc-pod/proxy/healthz
+{"status":"ok"}
+```

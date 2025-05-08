@@ -6,6 +6,7 @@ colorTo: pink
 sdk: docker
 sdk_version: "3.1.2"
 app_file: gptsvc/main.py
+app_port : 8000
 pinned: false
 ---
 

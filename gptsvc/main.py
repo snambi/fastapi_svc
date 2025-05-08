@@ -47,6 +47,7 @@ async def get_hello():
 
 
 @app.get("/healthz")
+@app.get("/health")
 @app.get("/")
 def health():
     return {"status": "ok"}
